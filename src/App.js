@@ -1,6 +1,6 @@
 import './App.css';
 import {
-  ChakraProvider, Tabs, TabList, TabPanels, Tab, TabPanel, Flex, Container 
+  ChakraProvider, Container
 } from '@chakra-ui/react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/pages/Home';
@@ -15,45 +15,28 @@ function App() {
 
 
     <ChakraProvider>
-      <Container>
-      <Flex alignItems="center">
-      <Tabs>
-        <TabList>
-          <Tab>Home</Tab>
-          <Tab>Sobre</Tab>
-          <Tab>Contato</Tab>
-        </TabList>
+      <Container maxW='3x1' p="0">
 
-        <TabPanels>
-          <TabPanel>
-            <p>Home</p>
-          </TabPanel>
-          <TabPanel>
-            <p>Sobre</p>
-          </TabPanel>
-          <TabPanel>
-            <p>Contato</p>
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-      </Flex>
+
+
+        <BrowserRouter>
+          
+            <Menupg />
+
+          
+
+
+
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/sobre" element={<Sobre />}></Route>
+            <Route exact path="/contato" element={<Contato />}></Route>
+            <Route exact path="/agenda" element={<Agenda />}></Route>
+          </Routes>
+
+
+        </BrowserRouter>
       </Container>
-      
-      <BrowserRouter>
-
-        <Menupg />
-
-
-
-        <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/sobre" element={<Sobre />}></Route>
-          <Route exact path="/contato" element={<Contato />}></Route>
-          <Route exact path="/agenda" element={<Agenda />}></Route>
-        </Routes>
-
-
-      </BrowserRouter>
     </ChakraProvider>
 
 
